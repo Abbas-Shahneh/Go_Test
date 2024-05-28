@@ -2,10 +2,9 @@ package Repository
 
 import (
 	"context"
-	"portScan/Model"
-
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
+	"portScan/Model"
 )
 
 type ScanRepository interface {

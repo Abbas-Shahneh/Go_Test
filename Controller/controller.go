@@ -1,10 +1,9 @@
 package Controller
 
 import (
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"portScan/Service"
-
-	"github.com/gin-gonic/gin"
 )
 
 type ScanController struct {
@@ -17,10 +16,6 @@ func NewScanController(service Service.ScanService) *ScanController {
 
 func (sc *ScanController) HandleScanRequest(c *gin.Context) {
 	ipAddress := c.Param("ipAddress")
-	if ipAddress == "" {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "IP address is required"})
-		return
-	}
 	sc.service.ScanIPAddress(ipAddress)
 	c.Status(http.StatusAccepted)
 }
